@@ -151,6 +151,9 @@ public:
      */
     lciv(uint64_t max_len = 0, uint64_t width = 0){
 
+        std::ignore = max_len;
+        std::ignore = width;
+
         root = new node();
 
     }
@@ -349,7 +352,7 @@ private:
          */
         node(){
 
-            subtree_sizes = vector<uint64_t>(2*B+2,1);
+            subtree_sizes = vector<uint64_t>(2*B+2);
 
             nr_children = 1;
             has_leaves_ = true;
@@ -368,7 +371,7 @@ private:
             this->rank_ = rank;
             this->parent = P;
 
-            subtree_sizes = vector<uint64_t>(2*B+2,1);
+            subtree_sizes = vector<uint64_t>(2*B+2);
 
             uint64_t si = 0;
 
@@ -406,7 +409,7 @@ private:
             this->rank_ = rank;
             this->parent = P;
 
-            subtree_sizes = vector<uint64_t>(2*B+2,1);
+            subtree_sizes = vector<uint64_t>(2*B+2);
 
             assert(c.size()<=2*B+2);
 
@@ -1045,7 +1048,6 @@ private:
 	       
                 assert( i < x->size() );
 
-                uint64_t z = x->at(i);
                 x->remove( i );
 	       
                 //update satellite data
@@ -1512,7 +1514,7 @@ private:
 
     };
 
-    node* root;  //= NULL;		//tree root
+    node* root = NULL;		//tree root
 
 };
 

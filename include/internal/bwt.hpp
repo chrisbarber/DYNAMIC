@@ -75,11 +75,13 @@ public:
 	 */
 	bwt(vector<pair<char_type,double> >& P){
 
+#ifndef NDEBUG
 		for(auto p:P){
 
 			assert(p.first != TERMINATOR);
 
 		}
+#endif
 
 		F = rle_string_type(P);
 		L = dynamic_string_type(P);
@@ -114,7 +116,7 @@ public:
 	 * build structure given as input the BWT in string format
 	 * and the terminator character
 	 */
-	void build_from_string(string& bwt, char_type terminator, bool verbose=false);
+	void build_from_string(string& bwt, char terminator, bool verbose=false);
 
 	/*
 	 * build BWT(cW) from BWT(W)
